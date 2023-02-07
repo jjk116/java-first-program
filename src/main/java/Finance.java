@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Map;
 import com.h2.BestLoanRates;
 import com.h2.SavingsCalculator;
@@ -33,6 +34,20 @@ public class Finance {
                                         MortgageCalculator.main(arguments);
                                         return;
         }
+    }
+
+    public static void main(String args[]) {
+        String command = args[0];
+        if (!commandsToUsage.containsKey(command)) {
+            System.out.println(command + ": command not found");
+            return;
+        }
+        boolean isValidCommand = validateCommandArguments(args);
+        if (!isValidCommand) {
+            commandsToUsage.get(args);
+            return;
+        }
+        executeCommand(command, Arrays.copyOfRange(args, 1, args.length));
     }
 
 }

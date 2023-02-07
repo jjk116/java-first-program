@@ -33,10 +33,8 @@ public class Finance {
             case MORTGAGE_CALCULATOR:   System.out.println("Finding your monthly payment ...");
                                         MortgageCalculator.main(arguments);
                                         return;
-
-            default:
-                throw new IllegalStateException("Unexpected value: " + command);
         }
+        return;
     }
 
     public static void main(String args[]) {
